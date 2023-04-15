@@ -28,6 +28,24 @@ Pickup Request
                                 {{order_id}}
                             </td>
                         </tr>
+                        <!--{% for field in order_details %}
+                        <td width="75%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;">
+                            {{ field.label }}
+                        </td>
+                        <td width="25%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;">
+                            {{ field.data }}
+                        </td>
+                    {% endfor %} -->
+                        {% for field in order_details %}
+                        <tr>
+                            <td width="25%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;">
+                                <b>{{ field.label }}</b>
+                            </td>
+                            <td width="75%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;">
+                                {{ field.data }}
+                            </td>
+                        </tr>
+                        {% endfor %}
                         <tr>
                             <td width="40%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;">
                                 <b>Delivery Partner</b>
