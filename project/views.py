@@ -122,14 +122,10 @@ def order3(request):
         form = Order_Form(request.POST,request.FILES)
         if form.is_valid():
                 id = form.save()
-                print("order saved")
                 order_id = id.id
-                print("got order id")
                 order_details = Order.objects.filter(id = order_id)[0]
                 order_details = Order_Form(data=model_to_dict(Order.objects.get(pk=order_id)))
-                print("got order details")
                 context = {'order_details': order_details}
-                print("created context")
                 return render(request, "project/order-confirm.html", context)
     form = Order_Form()
     context = {'form':form,'user':request.user.is_authenticated}
