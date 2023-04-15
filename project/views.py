@@ -134,6 +134,12 @@ def order3(request):
     return render(request,"project/pickup3.html",context)
 
 
+def get_order_details(request, order_id):
+    order_details = Order.objects.filter(id = order_id)[0]
+    order_details = Order_Form(data=model_to_dict(Order.objects.get(pk=order_id)))
+    context = {'order_details':order_details,'order_id':order_id}
+    return render(request, "project/order-confirm.html", context)
+
 def profile_page(request):
     first_name, last_name, email, mobile_no  = 'Not Provided', 'Not Provided', 'Not Provided', 'Not Provided'
     context = {'first_name':first_name,'last_name':last_name,'mobile_no':mobile_no,'email':email,'mobile_no':mobile_no , 'balance': 0}

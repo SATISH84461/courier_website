@@ -16,5 +16,6 @@ urlpatterns = [
     path("order3", views.order3,name="order3"),
     path("channel_integration", views.channel_integration,name="channel_integration"),
     path("carrier_integration", views.carrier_integration,name="carrier_integration"),
+    path("order/<int:order_id>", views.get_order_details,name="get_order_details"),
 ]
 

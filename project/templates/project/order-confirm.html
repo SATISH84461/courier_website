@@ -5,10 +5,10 @@ Pickup Request
 {% endblock %}
 
 {% block body %}
-<div class="conatiner m-5">
+<!-- <div class="conatiner m-5">
     <div class="col-12" style="padding: 5vh 10vw 0vh 10vw;">
         <h4>Order Confirmed</h4>
-            <!-- <div class="row">
+            <div class="row">
                 <div class="col-6">
                     <h3 class="text-center">Pickup Details</h3>
                     <div class="mt-3">
@@ -82,12 +82,91 @@ Pickup Request
             </div>
             <div class="text-center mt-5">
                 <input type="submit" class="btn btn-primary" value="Place Order">
-            </div> -->
+            </div>
         <div>
             {% for field in order_details %}
     <li><b>{{ field.label }}:</b> {{ field.data }}</li>
 {% endfor %}
         </div>
     </div>
-</div>
+</div> -->
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" >
+    <tr>
+        <td align="center" style="padding: 35px 35px 20px 35px; background-color: #ffffff;" bgcolor="#ffffff">
+        <table align="center" border="0">
+            <tr>
+                <td align="center" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding-top: 25px;">
+                    <img src="https://img.icons8.com/carbon-copy/100/000000/checked-checkbox.png" width="125" height="120" style="display: block; border: 0px;" /><br>
+                    <h2 style="font-size: 30px; font-weight: 800; line-height: 36px; color: #333333; margin: 0;">
+                        Thank You For Your Order!
+                    </h2>
+                </td>
+            </tr>
+            <tr>
+                <td align="left" style="padding-top: 20px;">
+                    <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                        <tr>
+                            <td width="40%" align="left" bgcolor="#eeeeee" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;">
+                                Order ID #
+                            </td>
+                            <td width="60%" align="left" bgcolor="#eeeeee" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;">
+                                {{order_id}}
+                            </td>
+                        <!-- </tr>
+                        {% for field in order_details %}
+                        <td width="75%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;">
+                            {{ field.label }}
+                        </td>
+                        <td width="25%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;">
+                            {{ field.data }}
+                        </td>
+                    {% endfor %} -->
+                        {% for field in order_details %}
+                        <tr>
+                            <td width="25%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;">
+                                <b>{{ field.label }}</b>
+                            </td>
+                            <td width="75%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;">
+                                {{ field.data }}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        <tr>
+                            <td width="40%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;">
+                                <b>Delivery Partner</b>
+                            </td>
+                            <td width="60%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;">
+                                Fedx
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="40%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;">
+                                <b>Estimated Delivery Date</b>
+                            </td>
+                            <td width="60%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;">
+                                3 Days
+                            </td>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td align="left" style="padding-top: 20px;">
+                    <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                        <tr>
+                            <td width="40%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px; border-top: 3px solid #eeeeee; border-bottom: 3px solid #eeeeee;">
+                                Charge
+                            </td>
+                            <td width="60%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px; border-top: 3px solid #eeeeee; border-bottom: 3px solid #eeeeee;">
+                                $115.00
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        
+        </td>
+    </tr>
+</table>
+
 {% endblock %}
