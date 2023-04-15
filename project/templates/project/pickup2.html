@@ -1,0 +1,56 @@
+{% extends "project/layout.html" %}
+
+{% block title %}
+Pickup Request
+{% endblock %}
+
+{% block body %}
+<div class="conatiner m-5">
+    <div class="col-12" style="padding: 5vh 10vw 0vh 10vw;">
+        <h4>Select Your Delivery Partner</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent congue justo scelerisque mattis iaculis.
+            Maecenas vestibulum faucibus enim scelerisque egestas. Praesent facilisis, tortor vel vehicula imperdiet.
+        </p>
+        <form action="{% url 'order2' %}" method="post">
+            {% csrf_token %}
+            <table class="table table-striped text-center">
+                <thead>
+                    <th></th>
+                    <th>Delivery Parter</th>
+                    <th>Price</th>
+                    <th>Days</th>
+                    <th></th>
+                </thead>
+                <tr>
+                    <td>1</td>
+                    <td>Delivery</td>
+                    <td>30</td>
+                    <td>5</td>
+                    <td><button type="submit" class="btn btn-primary">Select Partner</button></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Fedex</td>
+                    <td>50</td>
+                    <td>3</td>
+                    <td><button type="submit" class="btn btn-primary">Select Partner</button></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Ecom Express</td>
+                    <td>20</td>
+                    <td>8</td>
+                    <td><button type="submit" class="btn btn-primary">Select Partner</button></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Gati</td>
+                    <td>100</td>
+                    <td>1</td>
+                    <td><button type="submit" class="btn btn-primary">Select Partner</button></td>
+                </tr>
+            </table>    
+        </form>
+    </div>
+</div>
+{% endblock %}

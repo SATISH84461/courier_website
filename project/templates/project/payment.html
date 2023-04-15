@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Razorpay Payment Integration</title>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  </head>
+  <body>
+    <h1>Make a Payment</h1>
+    <form id="paymentForm" method="post" action="{% url 'make_payment' %}">
+      {% csrf_token %}
+      <label for="amount">Amount:</label>
+      <input type="number" name="amount" required><br><br>
+      <label for="currency">Currency:</label>
+      <select name="currency" required>
+        <option value="">Select a currency</option>
+        <option value="INR">INR</option>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+      </select><br><br>
+      <button type="submit" id="payButton">Pay with Razorpay</button>
+    </form>
+    <script>
+      // When the form is submitted, create a Razorpay payment
+      document.getElementById('paymentForm').addEventListener('submit', function(event) {
+        // Prevent the form from submitting
+        event.preventDefault();
+
+        // Create a new instance of the Razorpay checkout object
+        var options = {
+          key: '{{ key }}',
+          amount: document.getElementsByName('amount')[0].value * 100,
+          currency: document.getElementsByName('currency')[0].value,
+          name: 'My Website',
+          description: 'Test Transaction',
+          image: 'https://example.com/logo.png',
+          order_id: '{{ order_id }}',
+          handler: function(response) {
+            // Set the payment ID as the value of the hidden input field and submit the form
+            document.getElementsByName('razorpay_payment_id')[0].value = response.razorpay_payment_id;
+            document.getElementById('paymentForm').submit();
+          },
+          prefill: {
+            name: 'John Doe',
+            email: 'john.doe@example.com',
+            contact: '+919876543210'
+          },
+          notes: {
+            address: '123 Main Street',
+            country: 'IN'
+          }
+        };
+        var rzp1 = new Razorpay(options);
+        rzp1.on('payment.failed', function (response){
+          console.error(response.error.description);
+        });
+        rzp1.open();
+      });
+    </script>
+  </body>
+</html>

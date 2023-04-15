@@ -1,0 +1,22 @@
+{% extends "project/layout.html" %}
+
+{% block title %}
+OTP Verification
+{% endblock %}
+
+{% block body %}
+<div class="conatiner m-5">
+    <div class="col-8" style="padding: 5vh 10vw 0vh 10vw;">
+        <h4>Verify Your OTP</h4>    
+        <p>{{error}}</p>
+        <p>OTP has been to your Entered Email Id and Mobile Number</p>
+        <form action="{% url 'otp_verification' %}" method="post" class="form-group" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+                {{ form.as_p }}
+            </div>
+            <input type="submit" class="btn btn-primary" value="Verify">
+        </form>
+    </div>
+</div>
+{% endblock %}

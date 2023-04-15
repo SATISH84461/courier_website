@@ -1,0 +1,21 @@
+{% extends "project/layout.html" %}
+
+{% block title %}
+Pickup Request
+{% endblock %}
+
+{% block body %}
+<div class="conatiner m-5">
+    <div class="col-8" style="padding: 5vh 10vw 0vh 10vw;">
+        <h4>Register with us to become our partner</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent congue justo scelerisque mattis iaculis.
+            Maecenas vestibulum faucibus enim scelerisque egestas. Praesent facilisis, tortor vel vehicula imperdiet.
+        </p>
+        <form action="{% url 'carrier_integration' %}" method="post" class="form-group" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" class="btn btn-primary" value="Register Your Business">
+        </form>
+    </div>
+</div>
+{% endblock %}

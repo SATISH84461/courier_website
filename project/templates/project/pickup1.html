@@ -1,0 +1,23 @@
+{% extends "project/layout.html" %}
+
+{% block title %}
+Pickup Request
+{% endblock %}
+
+{% block body %}
+<div class="conatiner m-5">
+    <div class="col-8" style="padding: 5vh 10vw 0vh 10vw;">
+        <h4>BOOKING ONLINE</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent congue justo scelerisque mattis iaculis.
+            Maecenas vestibulum faucibus enim scelerisque egestas. Praesent facilisis, tortor vel vehicula imperdiet.
+        </p>
+        <form action="{% url 'order1' %}" method="post" class="form-group" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+                {{ form.as_p }}
+            </div>
+            <input type="submit" class="btn btn-primary" value="Get Partner Details">
+        </form>
+    </div>
+</div>
+{% endblock %}

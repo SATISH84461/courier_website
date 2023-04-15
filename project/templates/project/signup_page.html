@@ -1,0 +1,55 @@
+{% extends 'project/layout.html' %}
+
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+
+    <h2 class="text-center m-5">Register</h2>
+
+    <p>{{error}}</p>
+
+    <form action="{% url 'signup' %}" method="post" style="margin: 5vh 10vw;">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-12">
+                <div class="row mb-4">
+                    <div class="col-6">
+                        <label class="m-1" for={{form.first_name.id_for_labe}}>First Name</label>
+                        {{ form.first_name }}
+                    </div>
+                    <div class="col-6">
+                        <label class="m-1" for={{form.last_name.id_for_labe}}>Last Name</label>
+                        {{ form.last_name }}
+                    </div>
+                    <div class="col-12">
+                        <label class="m-1" for={{form.username.id_for_labe}}>Mobile Number</label>
+                        {{ form.mobile_no }}
+                    </div>
+                    <div class="col-12">
+                        <label class="m-1" for={{form.email.id_for_labe}}>Email</label>
+                        {{ form.email }}
+                    </div>
+                    <div class="col-6">
+                        <label class="m-1" for={{form.confirm_password.id_for_labe}}>Password</label>
+                        {{ form.password1 }}
+                    </div>
+                    <div class="col-6">
+                        <label class="m-1" for={{form.confirm_password.id_for_labe}}>Confirm Password</label>
+                        {{ form.password2 }}
+                    </div>
+                </div>
+                <div class="login_button text-center">
+                    <input type="submit" class="btn btn-primary text-center" style="padding: 1vh 3vw;" value="Sign Up">
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'project/layout.html' %}
+
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+
+    <h2 class="text-center m-5">Login</h2>
+
+    <p>{{error}}</p>
+
+    <form action="{% url 'login' %}" class="m-5" method="POST">
+        <div class="row" style="margin: 5vh 10vw;">
+            <div class="col-12">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="login_button text-center">
+                    <input type="submit" class="btn btn-primary text-center" value="Login">
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+{% endblock %}

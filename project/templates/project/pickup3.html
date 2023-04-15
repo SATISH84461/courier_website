@@ -1,0 +1,95 @@
+{% extends "project/layout.html" %}
+
+{% block title %}
+Pickup Request
+{% endblock %}
+
+{% block body %}
+<div class="conatiner m-5">
+    <div class="col-12" style="padding: 5vh 10vw 0vh 10vw;">
+        <h4>BOOKING ONLINE</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent congue justo scelerisque mattis iaculis.
+            Maecenas vestibulum faucibus enim scelerisque egestas. Praesent facilisis, tortor vel vehicula imperdiet.
+        </p>
+        <form action="{% url 'order3' %}" method="post" class="form-group" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.Pickup_Name.errors }}
+            <div class="row">
+                <div class="col-6">
+                    <h3 class="text-center">Enter Pickup Details</h3>
+                    <div class="mt-3">
+                        <label for="{{ form.Pickup_Name.id_for_label }}">{{form.Pickup_Name.label_tag }}</label>
+                        {{ form.Pickup_Name }}
+                    </div>
+                    <div class="mt-3">
+                        <label for="{{ form.Pickup_Mobile_Number.id_for_label }}">{{form.Pickup_Mobile_Number.label_tag }}</label>
+                        {{ form.Pickup_Mobile_Number }}
+                    </div>
+                    <div class="mt-3">
+                        <label for="{{ form.Pickup_Alternate_Mobile_Number.id_for_label }}">{{form.Pickup_Alternate_Mobile_Number.label_tag }}</label>
+                        {{ form.Pickup_Alternate_Mobile_Number }}
+                    </div>
+                    <div class="mt-3">
+                        <label for="{{ form.Pickup_Address1.id_for_label }}">{{form.Pickup_Address1.label_tag }}</label>
+                        {{ form.Pickup_Address1 }}
+                    </div>
+                    <div class="mt-3">
+                        <label for="{{ form.Pickup_Address2.id_for_label }}">{{form.Pickup_Address2.label_tag }}</label>
+                        {{ form.Pickup_Address2 }}
+                    </div>
+                    <div class="mt-3">
+                        <label for="{{ form.Pickup_Landmark.id_for_label }}">{{form.Pickup_Landmark.label_tag }}</label>
+                        {{ form.Pickup_Landmark  }}
+                    </div>
+                    <div class="mt-3">
+                        <label for="{{ form.Pickup_City.id_for_label }}">{{form.Pickup_City.label_tag }}</label>
+                        {{ form.Pickup_City }}
+                    </div>
+                    <div class="mt-3">
+                        <label for="{{ form.Pickup_Pin_code.id_for_label }}">{{form.Pickup_Pin_code.label_tag }}</label>
+                        {{ form.Pickup_Pin_code }}
+                    </div>
+                </div>
+                <div class="col-6">
+                    <h3 class="text-center">Enter Delivery Details</h3>
+                    <div class="mt-3">
+                        <label for="{{ form.Delivery_Name.id_for_label }}">{{form.Delivery_Name.label_tag }}</label>
+                        {{ form.Delivery_Name }}
+                    </div>
+                    <div class="mt-3">
+                        <label for="{{ form.Delivery_Mobile.id_for_label }}">{{form.Delivery_Mobile.label_tag }}</label>
+                        {{ form.Delivery_Mobile }}
+                    </div>
+                    <div class="mt-3">
+                        <label for="{{ form.Delivery_Alternate_Mobile.id_for_label }}">{{form.Delivery_Alternate_Mobile.label_tag }}</label>
+                        {{ form.Delivery_Alternate_Mobile }}
+                    </div>
+                    <div class="mt-3">
+                        <label for="{{ form.Delivery_Address1.id_for_label }}">{{form.Delivery_Address1.label_tag }}</label>
+                        {{ form.Delivery_Address1 }}
+                    </div>
+                    <div class="mt-3">
+                        <label for="{{ form.Delivery_Address2.id_for_label }}">{{form.Delivery_Address2.label_tag }}</label>
+                        {{ form.Delivery_Address2 }}
+                    </div>
+                    <div class="mt-3">
+                        <label for="{{ form.Delivery_Landmark.id_for_label }}">{{form.Delivery_Landmark.label_tag }}</label>
+                        {{ form.Delivery_Landmark  }}
+                    </div>
+                    <div class="mt-3">
+                        <label for="{{ form.Delivery_City.id_for_label }}">{{form.Delivery_City.label_tag }}</label>
+                        {{ form.Delivery_City }}
+                    </div>
+                    <div class="mt-3">
+                        <label for="{{ form.Delivery_Pin_code.id_for_label }}">{{form.Delivery_Pin_code.label_tag }}</label>
+                        {{ form.Delivery_Pin_code }}
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <input type="submit" class="btn btn-primary" value="Place Order">
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
