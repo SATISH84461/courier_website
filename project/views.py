@@ -65,9 +65,11 @@ def user_logout(request):
     return redirect('/')
 
 def about_us(request):
+    context = {'user':request.user.is_authenticated}
     return render(request,"project/about_us.html")
 
-def contact_us(request):                                                                                                                                                      
+def contact_us(request):         
+    context = {'user':request.user.is_authenticated}                                                                                                                                             
     return render(request,"project/contact_us.html")
 
 @csrf_exempt
