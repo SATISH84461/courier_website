@@ -9,7 +9,8 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.forms.models import model_to_dict
 # Create your views here.
 
-from .models import CustomUser,Account, Recharge_Transaction, Order
+from .models import CustomUser,Account, Recharge_Transaction, Order, CustomUser
+from django.contrib.auth.models import User
 from courierproject import settings
 
 def home(request):
@@ -74,9 +75,14 @@ def contact_us(request):
 
 @csrf_exempt
 def track_order(request):
+    if request.method == "POST":
+        return render(request,"project/track_page_table.html")
     form = Track_Order()
     context = {'form':form,'user':request.user.is_authenticated}
     return render(request,"project/track_order.html",context)
+
+def track_order_details(request, track_id):
+    return render(request,"project/track_page_table.html")
 
 @csrf_exempt
 def channel_integration(request):
@@ -84,7 +90,8 @@ def channel_integration(request):
         form = Channel_Integration_Form(request.POST,request.FILES)
         if form.is_valid():
             form.save()
-            return redirect("/")
+            context = {'objective':"Regular Customer"}
+            return render(request, "project/thankspage.html", context)
     form = Channel_Integration_Form()
     context = {'form':form,'user':request.user.is_authenticated}
     return render(request,"project/channel_integration.html",context)
@@ -96,7 +103,8 @@ def carrier_integration(request):
         print(form.errors)
         if form.is_valid():
             form.save()
-            return redirect("/")
+            context = {'objective':"Regular Customer"}
+            return render(request,"project/thankspage.html",context)
     form = Carrier_Integration()
     context = {'form':form,'user':request.user.is_authenticated}
     return render(request,"project/carrier_integration.html",context)
@@ -135,24 +143,25 @@ def order3(request):
 
 
 def get_order_details(request, order_id):
-    order_details = Order.objects.filter(id = order_id)[0]
-    order_details = Order_Form(data=model_to_dict(Order.objects.get(pk=order_id)))
-    context = {'order_details':order_details,'order_id':order_id}
-    return render(request, "project/order-confirm.html", context)
+    try:
+        order_details = Order.objects.filter(id = order_id)[0]
+        order_details = Order_Form(data=model_to_dict(Order.objects.get(pk=order_id)))
+        context = {'order_details':order_details,'order_id':order_id}
+        return render(request, "project/order-confirm.html", context)
+    except:
+        return render(request, "project/404.html")
 
 def profile_page(request):
     first_name, last_name, email, mobile_no  = 'Not Provided', 'Not Provided', 'Not Provided', 'Not Provided'
     context = {'first_name':first_name,'last_name':last_name,'mobile_no':mobile_no,'email':email,'mobile_no':mobile_no , 'balance': 0}
     try:
         if request.user.is_authenticated:
-            first_name = request.user.first_name
-            last_name = request.user.last_name
-            email = request.user.email
-            mobile_no = request.user.mobile_no
-            user = CustomUser.objects.filter(email=request.user)[0]
-            balance = Account.objects.filter(user=user)[0].account_balance
-            print(balance)
-            context['balance'] = balance
+            user_details = CustomUser.objects.filter(id=request.user.id)[0]
+            first_name = user_details.first_name
+            last_name = user_details.last_name
+            email = user_details.email
+            mobile_no = user_details.mobile_no
     except:
         pass
+    context = {'first_name':first_name,'last_name':last_name,'mobile_no':mobile_no,'email':email,'mobile_no':mobile_no , 'balance': 0}
     return render(request,"project/profile_page.html",context)

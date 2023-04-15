@@ -12,6 +12,8 @@ from .managers import CustomUserManager
 
 class CustomUser(AbstractUser):
     username = None
+    first_name = models.CharField(max_length=10)
+    last_name = models.CharField(max_length=10)
     email = models.EmailField(_('email address'),unique=True)
     mobile_no = models.CharField(max_length=10,unique=True)
     
@@ -66,41 +68,16 @@ class Channel_Integration(models.Model):
     company_registered_address = models.CharField(max_length = 256)
     company_registered_email = models.EmailField(max_length = 256)
     company_register_mobile = models.BigIntegerField()
-    company_id_proof = models.FileField(max_length = 256,upload_to="company_id_proof")
-    individual_id_proof =models.FileField(max_length = 256,upload_to="individual_id_proof")
-    company_GST = models.FileField(max_length = 256,upload_to="company_GST")
+    company_id_proof = models.FileField(max_length = 256,upload_to="Channel_Integration_company_id_proof")
+    individual_id_proof =models.FileField(max_length = 256,upload_to="Channel_Integration_individual_id_proof")
+    company_GST = models.FileField(max_length = 256,upload_to="Channel_Integration_company_GST")
 
 class Carrier_Integration(models.Model):
     company_name = models.CharField(max_length = 256)
     owner_name = models.CharField(max_length = 256)
     company_registered_email = models.EmailField(max_length = 256)
     company_register_mobile = models.BigIntegerField()
-    company_GST = models.FileField(max_length = 256,upload_to="company_GST")
-
-class PickupDetails(models.Model):
-    phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
-
-    Pickup_Name = models.CharField(max_length = 256)
-    Pickup_Mobile_Number = models.CharField(max_length = 10)
-    Pickup_Alternate_Mobile_Number = models.CharField(max_length = 10)
-    Pickup_Address1 = models.CharField(max_length=256)
-    Pickup_Address2 = models.CharField(max_length=256)
-    Pickup_Landmark = models.CharField(max_length=256)
-    Pickup_City = models.CharField(max_length=256)
-    Pickup_Pin_code = models.CharField(max_length=6)
-
-class DeliveryDetials(models.Model):
-    phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
-
-    Pickup_Pin_code = models.CharField(max_length=6)
-    Delivery_Name = models.CharField(max_length = 256)
-    Delivery_Mobile = models.CharField(max_length = 10)
-    Delivery_Alternate_Mobile = models.CharField(max_length = 10)
-    Delivery_Address1 = models.CharField(max_length=256)
-    Delivery_Address2 = models.CharField(max_length=256)
-    Delivery_Landmark = models.CharField(max_length=256)
-    Delivery_City = models.CharField(max_length=256)
-    Delivery_Pin_code = models.CharField(max_length=6)
+    company_GST = models.FileField(max_length = 256,upload_to="Carrier_Integration_company_GST")
 
 class Order(models.Model):
     Pickup_Name = models.CharField(max_length = 256)

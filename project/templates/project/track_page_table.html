@@ -1,0 +1,81 @@
+{% extends "project/layout.html" %}
+
+{% block title %}
+Pickup Request
+{% endblock %}
+
+{% block body %}
+
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" >
+    <tr>
+        <td align="center" style="padding: 35px 35px 20px 35px; background-color: #ffffff;" bgcolor="#ffffff;"> 
+            <table class="text-center" align="center" border="0" cellpadding="0" cellspacing="0" width="100% font-size: larger;" >
+                <tr>
+                    <td>
+                        <div>
+                            <b style="font-size: larger;"> Deliver Parter</b>
+                        </div>
+                        <div style="font-size: larger;">
+                            Fedx
+                        </div>
+                    </td>
+                    <td>
+                        <div>
+                            <b style="font-size: larger;">Estimated Time</b>
+                        </div>
+                        <div style="font-size: larger;">
+                            3 Days
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>    
+    <tr>
+        <td align="center" style="padding: 35px 35px 20px 35px; background-color: #ffffff;" bgcolor="#ffffff">
+            <table class="table table-striped text-center">
+                <thead>
+                  <tr>
+                    <th scope="col">Date</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Location</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <th scope="row">Jun 20, 2023</th>
+                      <td>Out for Pickup</td>
+                      <td>Pune</td>
+                    </tr>
+                  <tr>
+                    <th scope="row">Jun 20, 2023</th>
+                    <td>Couier Pickup</td>
+                    <td>Pune</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Jun 21, 2023</th>
+                    <td>Dispatched from Main Hub</td>
+                    <td>Pune</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Jun 22, 2023</th>
+                    <td>Reached main Hub</td>
+                    <td>Mohali</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Jun 23, 2023</th>
+                    <td>Out For Delivery</td>
+                    <td>Mohali</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Jun 23, 2023</th>
+                    <td>Delivered</td>
+                    <td>Mohali</td>
+                  </tr>
+                </tbody>
+              </table>
+        </td>
+    </tr>
+</table>
+
+{% endblock %}

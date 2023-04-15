@@ -5,91 +5,6 @@ Pickup Request
 {% endblock %}
 
 {% block body %}
-<!-- <div class="conatiner m-5">
-    <div class="col-12" style="padding: 5vh 10vw 0vh 10vw;">
-        <h4>Order Confirmed</h4>
-            <div class="row">
-                <div class="col-6">
-                    <h3 class="text-center">Pickup Details</h3>
-                    <div class="mt-3">
-                        <label for="{{ form.Pickup_Name.id_for_label }}">{{form.Pickup_Name.label_tag }}</label>
-                        {{ form.Pickup_Name }}
-                    </div>
-                    <div class="mt-3">
-                        <label for="{{ form.Pickup_Mobile_Number.id_for_label }}">{{form.Pickup_Mobile_Number.label_tag }}</label>
-                        {{ form.Pickup_Mobile_Number }}
-                    </div>
-                    <div class="mt-3">
-                        <label for="{{ form.Pickup_Alternate_Mobile_Number.id_for_label }}">{{form.Pickup_Alternate_Mobile_Number.label_tag }}</label>
-                        {{ form.Pickup_Alternate_Mobile_Number }}
-                    </div>
-                    <div class="mt-3">
-                        <label for="{{ form.Pickup_Address1.id_for_label }}">{{form.Pickup_Address1.label_tag }}</label>
-                        {{ form.Pickup_Address1 }}
-                    </div>
-                    <div class="mt-3">
-                        <label for="{{ form.Pickup_Address2.id_for_label }}">{{form.Pickup_Address2.label_tag }}</label>
-                        {{ form.Pickup_Address2 }}
-                    </div>
-                    <div class="mt-3">
-                        <label for="{{ form.Pickup_Landmark.id_for_label }}">{{form.Pickup_Landmark.label_tag }}</label>
-                        {{ form.Pickup_Landmark  }}
-                    </div>
-                    <div class="mt-3">
-                        <label for="{{ form.Pickup_City.id_for_label }}">{{form.Pickup_City.label_tag }}</label>
-                        {{ form.Pickup_City }}
-                    </div>
-                    <div class="mt-3">
-                        <label for="{{ form.Pickup_Pin_code.id_for_label }}">{{form.Pickup_Pin_code.label_tag }}</label>
-                        {{ form.Pickup_Pin_code }}
-                    </div>
-                </div>
-                <div class="col-6">
-                    <h3 class="text-center">Enter Delivery Details</h3>
-                    <div class="mt-3">
-                        <label for="{{ form.Delivery_Name.id_for_label }}">{{form.Delivery_Name.label_tag }}</label>
-                        {{ form.Delivery_Name }}
-                    </div>
-                    <div class="mt-3">
-                        <label for="{{ form.Delivery_Mobile.id_for_label }}">{{form.Delivery_Mobile.label_tag }}</label>
-                        {{ form.Delivery_Mobile }}
-                    </div>
-                    <div class="mt-3">
-                        <label for="{{ form.Delivery_Alternate_Mobile.id_for_label }}">{{form.Delivery_Alternate_Mobile.label_tag }}</label>
-                        {{ form.Delivery_Alternate_Mobile }}
-                    </div>
-                    <div class="mt-3">
-                        <label for="{{ form.Delivery_Address1.id_for_label }}">{{form.Delivery_Address1.label_tag }}</label>
-                        {{ form.Delivery_Address1 }}
-                    </div>
-                    <div class="mt-3">
-                        <label for="{{ form.Delivery_Address2.id_for_label }}">{{form.Delivery_Address2.label_tag }}</label>
-                        {{ form.Delivery_Address2 }}
-                    </div>
-                    <div class="mt-3">
-                        <label for="{{ form.Delivery_Landmark.id_for_label }}">{{form.Delivery_Landmark.label_tag }}</label>
-                        {{ form.Delivery_Landmark  }}
-                    </div>
-                    <div class="mt-3">
-                        <label for="{{ form.Delivery_City.id_for_label }}">{{form.Delivery_City.label_tag }}</label>
-                        {{ form.Delivery_City }}
-                    </div>
-                    <div class="mt-3">
-                        <label for="{{ form.Delivery_Pin_code.id_for_label }}">{{form.Delivery_Pin_code.label_tag }}</label>
-                        {{ form.Delivery_Pin_code }}
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-5">
-                <input type="submit" class="btn btn-primary" value="Place Order">
-            </div>
-        <div>
-            {% for field in order_details %}
-    <li><b>{{ field.label }}:</b> {{ field.data }}</li>
-{% endfor %}
-        </div>
-    </div>
-</div> -->
 <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%" >
     <tr>
         <td align="center" style="padding: 35px 35px 20px 35px; background-color: #ffffff;" bgcolor="#ffffff">
@@ -112,25 +27,7 @@ Pickup Request
                             <td width="60%" align="left" bgcolor="#eeeeee" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 800; line-height: 24px; padding: 10px;">
                                 {{order_id}}
                             </td>
-                        <!-- </tr>
-                        {% for field in order_details %}
-                        <td width="75%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;">
-                            {{ field.label }}
-                        </td>
-                        <td width="25%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;">
-                            {{ field.data }}
-                        </td>
-                    {% endfor %} -->
-                        {% for field in order_details %}
-                        <tr>
-                            <td width="25%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;">
-                                <b>{{ field.label }}</b>
-                            </td>
-                            <td width="75%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;">
-                                {{ field.data }}
-                            </td>
                         </tr>
-                        {% endfor %}
                         <tr>
                             <td width="40%" align="left" style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px; padding: 15px 10px 5px 10px;">
                                 <b>Delivery Partner</b>

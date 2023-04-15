@@ -1,5 +1,12 @@
-{% extends "project/layout.html" %} {% load static %} {% block title %} Profile
-{% endblock %} {% block link %}
+{% extends "project/layout.html" %} 
+
+{% load static %} 
+
+{% block title %} 
+Profile
+{% endblock %} 
+
+{% block link %}
 <link rel="stylesheet" href="{% static 'project/profile_page.css' %}" />
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -72,20 +79,6 @@
               <div class="col-sm-9 text-secondary">{{mobile_no}}</div>
             </div>
             <hr />
-            <div class="row">
-              <div class="col-sm-3">
-                <h6 class="mb-0">Address</h6>
-              </div>
-              <div class="col-sm-9 text-secondary">
-                Bay Area, San Francisco, CA
-              </div>
-            </div>
-            <hr />
-            <div class="row">
-              <div class="col-sm-12">
-                <a class="btn btn-info" href="#">Edit</a>
-              </div>
-            </div>
           </div>
         </div>
       </div>

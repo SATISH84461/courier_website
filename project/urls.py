@@ -11,6 +11,7 @@ urlpatterns = [
     path("contact_us", views.contact_us,name="contact_us"),
     path("profile", views.profile_page,name="profile"),
     path("track_order", views.track_order,name="track_order"),
+    path("track_order/<int:track_id>", views.track_order_details,name="track_order_details"),
     path("order1", views.order1,name="order1"),
     path("order2", views.order2,name="order2"),
     path("order3", views.order3,name="order3"),

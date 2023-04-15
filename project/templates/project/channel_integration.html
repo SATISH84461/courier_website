@@ -11,6 +11,7 @@ Pickup Request
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent congue justo scelerisque mattis iaculis.
             Maecenas vestibulum faucibus enim scelerisque egestas. Praesent facilisis, tortor vel vehicula imperdiet.
         </p>
+        {{form.error}}
         <form action="{% url 'channel_integration' %}" method="post" class="form-group" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
